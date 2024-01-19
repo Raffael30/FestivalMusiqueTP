@@ -9,6 +9,7 @@
 
 	<a th:href="" class="btn btn-primary" tabindex="-1" role="button">retour à la page d'accueil</a>
 	<a th:href="formulaireSoliste" class="btn btn-primary" tabindex="-1" role="button" >ajouter un chef d'orchestre</a>
+	
 	<table class="table">
 	  <thead>
 	    <tr>
@@ -19,8 +20,8 @@
 	      <th scope="col">nationalité du chef</th>
 	      <th scope="col">cachet demandé</th>
 	      <th scope="col">commentaires</th>
-	      <th scope="col"></th>
-	      <th scope="col"></h>
+	      <th scope="col"><a th:href="'suppressionChef/' + ${soliste.num}" class="btn btn-primary" tabindex="-1" role="button" >suppression</a></th>
+	      <th scope="col"><a th:href="'modificationChef/' + ${soliste.num}" class="btn btn-primary" tabindex="-1" role="button" >modification</a></h>
 	    </tr>
 	  </thead>
 	  <tbody>
