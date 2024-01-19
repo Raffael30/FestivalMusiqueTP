@@ -18,29 +18,34 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name="OEUVRE")
+@Table(name = "OEUVRE")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
 public class Oeuvre {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+<<<<<<< HEAD
 	public long num;
 	
+=======
+	public int num;
+
+>>>>>>> branch 'raphael' of https://github.com/Raffael30/FestivalMusiqueTP.git
 	@Column(name = "NOM")
 	public String nom;
-	
+
 	@Column(name = "DUREE")
 	public int duree;
-	
+
 	@ManyToMany(mappedBy = "oeuvres")
 	public List<Soliste> solistes;
-	
+
 	@ManyToOne
-	@JoinColumn(name="concert_num")
+	@JoinColumn(name = "concert_num")
 	public Concert concert;
 	
 	@ManyToOne
