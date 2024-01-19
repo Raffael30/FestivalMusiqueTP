@@ -25,13 +25,11 @@ public class OeuvreController {
 	@Autowired
 	IOeuvreServiceImpl ios;
 
-	// ok
 	@GetMapping("formOeuvre")
 	public String getFormOeuvre() {
 		return "affichageOeuvre";
 	}
 
-	// ok
 	@GetMapping("getAll")
 	public String getAll(Model m) {
 		List<Oeuvre> oeuvres = ios.getAllOeuvre();
@@ -39,29 +37,25 @@ public class OeuvreController {
 		return "affichageOeuvre";
 	}
 
-	// ok
 	@PostMapping("saveOeuvre")
 	public String saveOeuvre(@ModelAttribute("oeuvre") Oeuvre oeuvre) {
 		ios.saveOeuvre(oeuvre);
 		return "redirect:/oeuvre/getAll";
 	}
 
-	// ok
 	@GetMapping("getOeuvre/{num}")
 	public String getOeuvre(@PathVariable("num") long num, Model m) {
-		Optional<Oeuvre> oeuvre = ios.getOeuvre(num);
+		Optional<Oeuvre> oeuvre = Optional.ofNullable(ios.getOeuvre(num));
 		m.addAttribute("oeuvre", oeuvre);
 		return "affichageOeuvre";
 	}
 
-	// a améliorer
 	@PutMapping("updateOeuvre")
 	public String updateOeuvree(@ModelAttribute("oeuvre") Oeuvre oeuvre) {
 		ios.updateOeuvre(oeuvre);
 		return "affichageOeuvre";
 	}
 
-	// marche pas
 	@GetMapping("deleteOeuvre")
 	public String deleteOeuvre(@RequestParam(value = "numOeuvre") long num) {
 		ios.deleteOeuvre(num);

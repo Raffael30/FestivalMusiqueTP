@@ -1,9 +1,5 @@
 package com.inti.controller;
 
-<<<<<<< HEAD
-public class SolisteController {
-
-=======
 import java.util.List;
 import java.util.Optional;
 
@@ -28,47 +24,40 @@ public class SolisteController {
 	@Autowired
 	ISolisteService iss;
 	
-	//ok
 	@GetMapping("formSoliste")
 	public String getFormSoliste() {
 		return "affichageSoliste";
 	}
 	
-	//ok
 	@GetMapping("getAll")
 	public String getAll(Model m){
 		List<Soliste> solistes= iss.getAllSoliste();
 		m.addAttribute("solistes",solistes);
 		return "affichageSoliste";
 	}
-	
-	//ok
+
 	@PostMapping("saveSoliste")
 	public String saveSoliste(@ModelAttribute("soliste") Soliste soliste) {
-		iss.save(soliste);
+		iss.saveSoliste(soliste);
 		return "redirect:/soliste/getAll";
 	}
 	
-	//ok
 	@GetMapping("getSoliste/{num}")
-	public String getSoliste(@PathVariable("num") int num, Model m){
-		Optional<Soliste> soliste = iss.getSoliste(num);
+	public String getSoliste(@PathVariable("num") long num, Model m){
+		Optional<Soliste> soliste = Optional.ofNullable(iss.getSoliste(num));
 		m.addAttribute("soliste", soliste);
 		return "affichageSoliste";
 	}
 	
-	//a améliorer
 	@PutMapping("updateSoliste")
 	public String updateSoliste(@ModelAttribute("soliste") Soliste soliste) {
 		iss.updateSoliste(soliste);
 		return "affichageSoliste";
 	}
 	
-	//ok
 	@GetMapping("deleteSoliste")
-	public String deleteSoliste(@RequestParam(value ="numSoliste") int num) {
+	public String deleteSoliste(@RequestParam(value ="numSoliste") long num) {
 		iss.deleteSoliste(num);
 		return "redirect:/soliste/getAll";
 	}
->>>>>>> branch 'master' of https://github.com/Raffael30/FestivalMusiqueTP.git
 }
