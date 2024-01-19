@@ -32,7 +32,7 @@ public class SolisteServiceImpl implements ISolisteService {
 
 	@Override
 	public boolean updateSoliste(Soliste soliste) {
-		Soliste solisteToChange= isr.findByNom(soliste.nom);
+		Soliste solisteToChange = isr.findByNom(soliste.nom);
 		if (solisteToChange != null) {
 			soliste.num = solisteToChange.num;
 			isr.save(soliste);

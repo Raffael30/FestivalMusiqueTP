@@ -11,12 +11,12 @@ import com.inti.model.Oeuvre;
 public interface IOeuvreService {
 
 	public List<Oeuvre> getAllOeuvre();
-	
+
 	public Oeuvre save(Oeuvre oeuvre);
-	
+
 	public Optional<Oeuvre> getOeuvre(int num);
-	
+
 	public boolean updateOeuvre(Oeuvre oeuvre);
-	
+
 	public void deleteOeuvre(int num);
 }

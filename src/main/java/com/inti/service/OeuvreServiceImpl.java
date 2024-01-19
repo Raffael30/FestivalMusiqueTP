@@ -10,11 +10,11 @@ import com.inti.model.Oeuvre;
 import com.inti.repository.IOeuvreRepository;
 
 @Service
-public class OeuvreServiceImpl implements IOeuvreService{
-	
+public class OeuvreServiceImpl implements IOeuvreService {
+
 	@Autowired
 	IOeuvreRepository ior;
-	
+
 	@Override
 	public List<Oeuvre> getAllOeuvre() {
 		return ior.findAll();
@@ -32,13 +32,13 @@ public class OeuvreServiceImpl implements IOeuvreService{
 
 	@Override
 	public boolean updateOeuvre(Oeuvre oeuvre) {
-		Oeuvre oeuvreToChange= ior.findByNom(oeuvre.nom);
+		Oeuvre oeuvreToChange = ior.findByNom(oeuvre.nom);
 		if (oeuvreToChange != null) {
 			oeuvre.num = oeuvreToChange.num;
 			ior.save(oeuvre);
 			return true;
 		}
-		return false;	
+		return false;
 	}
 
 	@Override
