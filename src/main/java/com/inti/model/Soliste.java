@@ -49,7 +49,7 @@ public class Soliste {
 	public String nationalite;
 	
 	@ManyToMany
-	@JoinTable(name = "oeuvres_soloistes",
+	@JoinTable(name = "oeuvre_soliste",
 	joinColumns = @JoinColumn(name="soliste_num"),
 	inverseJoinColumns = @JoinColumn(name="oeuvre_num"))
 	public List<Oeuvre> oeuvres;
