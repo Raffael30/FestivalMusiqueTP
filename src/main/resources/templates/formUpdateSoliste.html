@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Modification d'un soliste</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+</head>
+<body>
+
+	<form method="post" action="/soliste/updateSoliste"
+		modelattribute="solist">
+		<div class="mb-3">
+			<label for="num" class="form-label">Num</label> <input type="text"
+				class="form-control" id="num" name="num" th:value="${soliste.num}"
+				hidden="true">
+		</div>
+		<div class="mb-3">
+			<label for="nom" class="form-label">Nom</label> <input type="text"
+				class="form-control" id="nom" name="nom" th:value="${soliste.nom}">
+		</div>
+		<div class="mb-3">
+			<label for="prenom" class="form-label">Prénom</label> <input
+				type="text" class="form-control" id="prenom" name="prenom"
+				th:value="${soliste.prenom}">
+		</div>
+		<div class="mb-3">
+			<label for="dateNaissance" class="form-label">Date de
+				naissance</label> <input type="date" class="form-control" id="dateNaissance"
+				name="dateNaissance" th:value="${soliste.dateNaissance}">
+		</div>
+
+		<button type="submit" class="btn btn-primary">Sauvegarder</button>
+	</form>
+
+</body>
+</html>

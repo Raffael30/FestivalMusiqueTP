@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Ajout d'un soliste</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+</head>
+<body>
+
+	<form method="post" action="saveSoliste" modelattribute="soliste">
+		<div class="mb-3">
+			<label for="nom" class="form-label">Nom</label> <input type="text"
+				class="form-control" id="nom" name="nom"
+				placeholder="Nom du soliste">
+		</div>
+		<div class="mb-3">
+			<label for="prenom" class="form-label">Prénom</label> <input
+				type="text" class="form-control" id="prenom" name="prenom"
+				placeholder="Prénom du soliste">
+		</div>
+		<div class="mb-3">
+			<label for="dateNaissance" class="form-label">Date de
+				naissance</label> <input type="date" class="form-control" id="dateNaissance"
+				name="dateNaissance" placeholder="Date de naissance du soliste">
+		</div>
+		<div class="mb-3">
+			<label for="nationalite" class="form-label">Nationalité du
+				soliste </label> <input type="text" class="form-control" id="nationalite"
+				name="nationalite" placeholder="Nationalite du soliste">
+		</div>
+
+		<button type="submit" class="btn btn-primary">Ajouter</button>
+		<button type="reset" class="btn btn-danger)">Annuler</button>
+	</form>
+
+</body>
+</html>

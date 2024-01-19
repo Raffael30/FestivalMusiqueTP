@@ -14,6 +14,7 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+<<<<<<< HEAD
 import lombok.Data;
 
 /**
@@ -23,6 +24,10 @@ import lombok.Data;
  * Classe concert pour les opérations CRUD(Create, Read, Update, Delete) 
  *
  */
+=======
+import lombok.Getter;
+import lombok.Setter;
+>>>>>>> branch 'raphael' of https://github.com/Raffael30/FestivalMusiqueTP.git
 
 @Entity
 @Table(name = "concert")
@@ -31,12 +36,24 @@ public class Concert {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+<<<<<<< HEAD
 	private long num;
 	
 	@Column(name = "nom", length = 50)
+=======
+	private int num;
+
+	@Column(name = "NOM")
+>>>>>>> branch 'raphael' of https://github.com/Raffael30/FestivalMusiqueTP.git
 	private String nom;
+<<<<<<< HEAD
 	
+=======
+
+	@Column(name = "DATECONCERT")
+>>>>>>> branch 'raphael' of https://github.com/Raffael30/FestivalMusiqueTP.git
 	private LocalDate dateConcert;
+<<<<<<< HEAD
 	
 	@OneToMany(targetEntity=Oeuvre.class, mappedBy="concert")
 	private List<Oeuvre> oeuvres = new ArrayList<>();
@@ -46,4 +63,9 @@ public class Concert {
 	private Lieu lieu;
 
 
+=======
+
+	@OneToMany(mappedBy = "concert")
+	List<Oeuvre> listeOeuvres;
+>>>>>>> branch 'raphael' of https://github.com/Raffael30/FestivalMusiqueTP.git
 }

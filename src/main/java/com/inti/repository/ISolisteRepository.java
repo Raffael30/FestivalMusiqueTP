@@ -14,6 +14,14 @@ import com.inti.model.Soliste;
  */
 
 @Repository
+<<<<<<< HEAD
 public interface ISolisteRepository extends JpaRepository<Soliste, Long>{
 
+=======
+public interface ISolisteRepository extends JpaRepository<Soliste, Integer> {
+
+	public Soliste findByNom(String nom);
+
+	public long count();
+>>>>>>> branch 'raphael' of https://github.com/Raffael30/FestivalMusiqueTP.git
 }

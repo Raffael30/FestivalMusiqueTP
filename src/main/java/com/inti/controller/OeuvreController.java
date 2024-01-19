@@ -53,7 +53,7 @@ public class OeuvreController {
 	}
 
 	@PutMapping("updateOeuvre")
-	public String updateOeuvree(@ModelAttribute("oeuvre") Oeuvre oeuvre) {
+	public String updateOeuvre(@ModelAttribute("oeuvre") Oeuvre oeuvre) {
 		ios.updateOeuvre(oeuvre);
 		return "affichageOeuvre";
 	}
