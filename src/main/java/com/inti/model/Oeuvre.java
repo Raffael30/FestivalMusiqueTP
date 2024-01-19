@@ -8,8 +8,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,20 +17,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-/**
- *@author Valentin
- *
- * Classe soliste td1 ex2
- */
-
 @Entity
-@Table(name="SOLISTE")
+@Table(name="OEUVRE")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Soliste {
+public class Oeuvre {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,18 +33,13 @@ public class Soliste {
 	@Column(name = "NOM")
 	public String nom;
 	
-	@Column(name = "PRENOM")
-	public String prenom;
+	@Column(name = "DUREE")
+	public int duree;
 	
-	@Column(name = "DATENAISSANCE")
-	public String dateNaissance;
+	@ManyToMany(mappedBy = "oeuvres")
+	public List<Soliste> solistes;
 	
-	@Column(name = "NATIONALITE")
-	public String nationalite;
-	
-	@ManyToMany
-	@JoinTable(name = "oeuvres_soloistes",
-	joinColumns = @JoinColumn(name="soliste_num"),
-	inverseJoinColumns = @JoinColumn(name="oeuvre_num"))
-	public List<Oeuvre> oeuvres;
+	@ManyToOne
+	@JoinColumn(name="concert_num")
+	public Concert concert;
 }
