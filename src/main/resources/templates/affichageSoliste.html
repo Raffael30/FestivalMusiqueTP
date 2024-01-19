@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Liste des solistes</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+</head>
+<body>
+
+	<table class="table table-dark">
+		<thead>
+			<tr>
+				<th scope="col">Num</th>
+				<th scope="col">Nom</th>
+				<th scope="col">Prénom</th>
+				<th scope="col">Date de naissance</th>
+				<th scope="col">Nationalité</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="soliste : ${listeSoliste}">
+				<th scope="row" th:text="${soliste.num}"></th>
+				<td th:text="${soliste.nom}"></td>
+				<td th:text="${soliste.prenom}"></td>
+				<td th:text="${soliste.dateNaissance}"></td>
+				<td th:text="${soliste.nationalite}"></td>
+				<td><a th:href="'updateSoliste/' + ${soliste.num}"><button
+							type="submit" class="btn btn-primary">Modifier</button></a> <a
+					th:href="'deleteSoliste/' + ${soliste.num}"><button
+							type="submit" class="btn btn-danger">Supprimer</button></a></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<a th:href="ajoutSoliste"><button type="button"
+			class="btn btn-primary">Ajouter un soliste</button></a>
+
+</body>
+</html>
