@@ -18,39 +18,37 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- *@author Valentin
+ * @author Valentin
  *
- * Classe soliste td1 ex2
+ *         Classe soliste td1 ex2
  */
 
 @Entity
-@Table(name="SOLISTE")
+@Table(name = "SOLISTE")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
 public class Soliste {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int num;
-	
+
 	@Column(name = "NOM")
 	public String nom;
-	
+
 	@Column(name = "PRENOM")
 	public String prenom;
-	
+
 	@Column(name = "DATENAISSANCE")
 	public String dateNaissance;
-	
+
 	@Column(name = "NATIONALITE")
 	public String nationalite;
-	
+
 	@ManyToMany
-	@JoinTable(name = "oeuvre_soliste",
-	joinColumns = @JoinColumn(name="soliste_num"),
-	inverseJoinColumns = @JoinColumn(name="oeuvre_num"))
+	@JoinTable(name = "oeuvre_soliste", joinColumns = @JoinColumn(name = "soliste_num"), inverseJoinColumns = @JoinColumn(name = "oeuvre_num"))
 	public List<Oeuvre> oeuvres;
 }
