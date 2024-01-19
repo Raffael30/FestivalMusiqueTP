@@ -29,17 +29,11 @@ public class SolisteController {
 	}
 
 	@GetMapping("getAll")
-<<<<<<< HEAD
 	public String getAll(Model m){
 		List<Soliste> solistes= iss.getAllSoliste();
 		long solisteCount = iss.getSolisteCount();
 		m.addAttribute("solistes",solistes);
 		m.addAttribute("solisteCount",solisteCount);
-=======
-	public String getAll(Model m) {
-		List<Soliste> solistes = iss.getAllSoliste();
-		m.addAttribute("solistes", solistes);
->>>>>>> branch 'raphael' of https://github.com/Raffael30/FestivalMusiqueTP.git
 		return "affichageSoliste";
 	}
 
