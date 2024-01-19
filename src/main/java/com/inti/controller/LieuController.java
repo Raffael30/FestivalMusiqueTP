@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.inti.model.Lieu;
 import com.inti.service.ILieuService;
 
-@Controller
+@Controller 
 @RequestMapping("lieu")
 public class LieuController {
 	
