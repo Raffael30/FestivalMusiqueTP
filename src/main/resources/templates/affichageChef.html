@@ -7,8 +7,8 @@
 </head>
 <body>
 
-	<a th:href="" class="btn btn-primary" tabindex="-1" role="button">retour à la page d'accueil</a>
-	<a th:href="formulaireChef" class="btn btn-primary" tabindex="-1" role="button" >ajouter un chef d'orchestre</a>
+	<a th:href="reset" class="btn btn-primary" tabindex="-1" role="button">retour à la page d'accueil</a>
+	<a th:href="formChef" class="btn btn-primary" tabindex="-1" role="button" >ajouter un chef d'orchestre</a>
 	
 	<table class="table">
 	  <thead>
@@ -24,16 +24,17 @@
 	      <th scope="col"></h>
 	    </tr>
 	  </thead>
-	  <tbody>
+	  <tbody th:each="chef : ${chefs}">
 	    <tr>
 	      <th scope="row">1</th>
-	      <td>Mark</td>
-	      <td>Otto</td>
-	      <td>@mdo</td>
-	      <td>@mdo</td>
-	      <td>@mdo</td>
-	      <td>@mdo</td>
-	      <td><a th:href="'suppressionChef/' + ${chef.num}" class="btn btn-primary" tabindex="-1" role="button" >suppression</a></td>
+	      <td th:text="${chef.num}"></td>
+	      <td th:text="${chef.nom}"></td>
+	      <td th:text="${chef.prenom}">@mdo</td>
+	      <td th:text="${chef.dateNaissance}"></td>
+	      <td th:text="${chef.nationalite}"></td>
+	      <td th:text="${chef.cachet}"></td>
+	      <td th:text="${chef.commentaire}"></td>
+	      <td><a th:href="'deleteSoliste?numChef=' + ${chef.num}" class="btn btn-primary" tabindex="-1" role="button" >suppression</a></td>
 	      <td><a th:href="'modificationChef/' + ${chef.num}" class="btn btn-primary" tabindex="-1" role="button" >modification</a></td>
 	    </tr>
 	  </tbody>
