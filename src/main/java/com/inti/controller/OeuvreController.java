@@ -33,7 +33,9 @@ public class OeuvreController {
 	@GetMapping("getAll")
 	public String getAll(Model m) {
 		List<Oeuvre> oeuvres = ios.getAllOeuvre();
+		long oeuvreCount = ios.getOeuvreCount();
 		m.addAttribute("oeuvres", oeuvres);
+		m.addAttribute("oeuvreCount", oeuvreCount);
 		return "affichageOeuvre";
 	}
 

@@ -32,7 +32,9 @@ public class SolisteController {
 	@GetMapping("getAll")
 	public String getAll(Model m){
 		List<Soliste> solistes= iss.getAllSoliste();
+		long solisteCount = iss.getSolisteCount();
 		m.addAttribute("solistes",solistes);
+		m.addAttribute("solisteCount",solisteCount);
 		return "affichageSoliste";
 	}
 	
