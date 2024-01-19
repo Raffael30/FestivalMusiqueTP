@@ -33,7 +33,7 @@ public class Lieu {
 	
 	private String rue;
 	
-	private long nbFauteuil;
+	private long nbFauteuil; 
 	
 	@OneToMany(targetEntity=Concert.class, mappedBy="lieu")
 	private List<Concert> concerts = new ArrayList<>();
