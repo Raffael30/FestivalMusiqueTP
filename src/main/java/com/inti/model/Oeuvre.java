@@ -1,7 +1,5 @@
 package com.inti.model;
 
-import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -10,49 +8,39 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-/**
- * 
- * @author antoine vallée
- * 
- * Classe oeuvre pour lister des oeuvres de notre bdd
- *
- */
 @Entity
-@Table(name = "oeuvre")
-@Data
+@Table(name="OEUVRE")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class Oeuvre {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long num;
+	public long num;
 	
-	@Column(name = "nom", length = 50)
-	private String nom;
+	@Column(name = "NOM")
+	public String nom;
 	
-	@Column(name="duree")
-	private LocalTime duree;
+	@Column(name = "DUREE")
+	public int duree;
 	
-	@ManyToMany
-    @JoinTable( name = "Oeuvre_Soliste_Associations",
-                joinColumns = @JoinColumn(name = "num_Oeuvre" ),
-                inverseJoinColumns = @JoinColumn(name = "num_Soliste" ) )
-    private List<Soliste> solistes = new ArrayList<>();
+	@ManyToMany(mappedBy = "oeuvres")
+	public List<Soliste> solistes;
+	
+	@ManyToOne
+	@JoinColumn(name="concert_num")
+	public Concert concert;
 
-	
-	@ManyToOne
-	@JoinTable(name="num")
-	private Chef chef;
-	
-	@ManyToOne
-	@JoinTable(name="num")
-	private Concert concert;
-	
-	
-	
 }

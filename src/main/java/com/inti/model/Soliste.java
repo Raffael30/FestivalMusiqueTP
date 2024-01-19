@@ -48,5 +48,4 @@ public class Soliste {
                 joinColumns = @JoinColumn(name = "num_Soliste" ),
                 inverseJoinColumns = @JoinColumn(name = "num_Oeuvre" ) )
     private List<Oeuvre> oeuvres = new ArrayList<>();
-
 }
