@@ -42,5 +42,9 @@ public class Oeuvre {
 	@ManyToOne
 	@JoinColumn(name="concert_num")
 	public Concert concert;
+	
+	@ManyToOne
+	@JoinColumn(name="chef_num")
+	public Chef chef;
 
 }
