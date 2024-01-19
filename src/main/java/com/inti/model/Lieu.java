@@ -33,9 +33,9 @@ public class Lieu {
 	
 	private String rue;
 	
-	private long fauteuils;
+	private long nbFauteuil;
 	
 	@OneToMany(targetEntity=Concert.class, mappedBy="lieu")
-	private List<Concert> concert = new ArrayList<>();
+	private List<Concert> concerts = new ArrayList<>();
 
 }
