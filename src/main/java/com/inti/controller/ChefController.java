@@ -27,6 +27,16 @@ public class ChefController {
 	}
 	
 	@GetMapping("getAll")
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public String getAll(Model m) {
 		m.addAttribute("chefs", ics.getAllChef());
 		m.addAttribute("countChef", ics.getChefCount());
