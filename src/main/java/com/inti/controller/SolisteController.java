@@ -24,49 +24,49 @@ import com.inti.service.ISolisteService;
 @Controller
 @RequestMapping("soliste")
 public class SolisteController {
-	
+
 	@Autowired
 	ISolisteService iss;
-	
-	//ok
+
+	// ok
 	@GetMapping("formSoliste")
 	public String getFormSoliste() {
 		return "affichageSoliste";
 	}
-	
-	//ok
+
+	// ok
 	@GetMapping("getAll")
-	public String getAll(Model m){
-		List<Soliste> solistes= iss.getAllSoliste();
-		m.addAttribute("solistes",solistes);
+	public String getAll(Model m) {
+		List<Soliste> solistes = iss.getAllSoliste();
+		m.addAttribute("solistes", solistes);
 		return "affichageSoliste";
 	}
-	
-	//ok
+
+	// ok
 	@PostMapping("saveSoliste")
 	public String saveSoliste(@ModelAttribute("soliste") Soliste soliste) {
 		iss.save(soliste);
 		return "redirect:/soliste/getAll";
 	}
-	
-	//ok
+
+	// ok
 	@GetMapping("getSoliste/{num}")
-	public String getSoliste(@PathVariable("num") int num, Model m){
+	public String getSoliste(@PathVariable("num") int num, Model m) {
 		Optional<Soliste> soliste = iss.getSoliste(num);
 		m.addAttribute("soliste", soliste);
 		return "affichageSoliste";
 	}
-	
-	//a améliorer
+
+	// a améliorer
 	@PutMapping("updateSoliste")
 	public String updateSoliste(@ModelAttribute("soliste") Soliste soliste) {
 		iss.updateSoliste(soliste);
 		return "affichageSoliste";
 	}
-	
-	//ok
+
+	// ok
 	@GetMapping("deleteSoliste")
-	public String deleteSoliste(@RequestParam(value ="numSoliste") int num) {
+	public String deleteSoliste(@RequestParam(value = "numSoliste") int num) {
 		iss.deleteSoliste(num);
 		return "redirect:/soliste/getAll";
 	}
