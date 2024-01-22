@@ -1,9 +1,11 @@
 package com.inti.controller;
 
 import com.inti.model.Chef;
+import com.inti.model.Soliste;
 import com.inti.service.IChefService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,10 +47,17 @@ public class ChefController {
 		return "affichageChef";
 	}
 	
-	@PutMapping("updateChef")
+	@GetMapping("modificationChef/{num}")
+	public String updateChef(@PathVariable(value="num" ) long num, Model s) {
+		Chef c = ics.getChef(num);
+		s.addAttribute("c", c);
+		return "formulaireChefUpdate";
+	}
+	
+	@PostMapping("updateChef")
 	public String updateChef(@ModelAttribute("chef") Chef chef) {
 		ics.updateChef(chef);
-		return "affichageChef";
+		return "redirect:/chef/getAll";
 	}
 	
 	@GetMapping("deleteSoliste")
